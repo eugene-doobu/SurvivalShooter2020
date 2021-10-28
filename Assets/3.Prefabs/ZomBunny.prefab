@@ -9840,6 +9840,7 @@ GameObject:
   - component: {fileID: 1668138427435835422}
   - component: {fileID: 1668138427768399776}
   - component: {fileID: 496919007}
+  - component: {fileID: 735432881}
   m_Layer: 7
   m_Name: ZomBunny
   m_TagString: Enemy
@@ -10070,6 +10071,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeBetweenAttacks: 0.5
   attackDamage: 10
+--- !u!114 &735432881
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1668138427427682812}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 624c21a73bffb814288e156182fe6191, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startingHealth: 100
+  currentHealth: 0
+  sinkSpeed: 2.5
+  scoreValue: 10
+  deathClip: {fileID: 8300000, guid: 1d3bfb9269f136947bf8ac164cace1ff, type: 3}
 --- !u!1 &1668138427427682814
 GameObject:
   m_ObjectHideFlags: 0
