@@ -12,7 +12,7 @@ public class GameOverManager : MonoBehaviour
 
     void Update()
     {
-        if(playerHealth.currentHealth <= 0 && !isGameOver)
+        if(playerHealth.isDead && !isGameOver)
         {
             isGameOver = true;
             StartCoroutine(GameOverDirection());

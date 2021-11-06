@@ -22,7 +22,7 @@ public class EnemyMovement : MonoBehaviour
 
     private void Update()
     {
-        if(enemyHealth.currentHealth > 0 && playerHealth.currentHealth > 0)
+        if(enemyHealth.currentHealth > 0 && !playerHealth.isDead)
         {
             nav.SetDestination(playerTr.position);
         }

@@ -25,7 +25,7 @@ public class EnemyManager : MonoBehaviour
 
     void Spawn()
     {
-        if (playerHealth.currentHealth <= 0f) return;
+        if (playerHealth.isDead) return;
 
         int spawnPointIndex = Random.Range(0, spawnPoints.Length);
         Instantiate(enemy, spawnPoints[spawnPointIndex].position, spawnPoints[spawnPointIndex].rotation);

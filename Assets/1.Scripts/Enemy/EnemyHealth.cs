@@ -14,6 +14,7 @@ public class EnemyHealth : MonoBehaviour
     private Animator anim;
     private AudioSource enemyAudio;
     private ParticleSystem hitParticles;
+    private ParticleSystem deathParticles;
     private CapsuleCollider capsuleCollider;
 
     private bool isDead;
@@ -23,7 +24,8 @@ public class EnemyHealth : MonoBehaviour
     {
         anim = GetComponent<Animator>();
         enemyAudio = GetComponent<AudioSource>();
-        hitParticles = GetComponentInChildren<ParticleSystem>();
+        hitParticles = transform.Find("HitParticles").GetComponent<ParticleSystem>();
+        deathParticles = transform.Find("DeathParticles").GetComponent<ParticleSystem>();
         capsuleCollider = GetComponent<CapsuleCollider>();
         currentHealth = startingHealth;
     }
@@ -53,6 +55,7 @@ public class EnemyHealth : MonoBehaviour
     {
         isDead = true;
         capsuleCollider.isTrigger = true;
+        deathParticles.Play();
         anim.SetTrigger("Dead");
         enemyAudio.clip = deathClip;
         enemyAudio.Play();

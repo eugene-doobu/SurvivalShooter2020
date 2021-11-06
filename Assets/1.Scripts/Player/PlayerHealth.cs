@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class PlayerHealth : MonoBehaviour
 {
     public int startHealth = 100;
-    public int currentHealth;
+    int currentHealth;
     public Slider healthSlider;
     public Image damageImage;
     public AudioClip deathClip;
@@ -18,7 +18,7 @@ public class PlayerHealth : MonoBehaviour
     private PlayerMovement playerMovement;
     private PlayerShooting playerShooting;
 
-    private bool isDead;
+    public bool isDead;
     private bool damaged;
 
     private void Awake()
@@ -61,6 +61,7 @@ public class PlayerHealth : MonoBehaviour
         isDead = true;
         anim.SetTrigger("isDead");
         playerAudio.clip = deathClip;
+        playerAudio.Play();
         playerMovement.enabled = false;
 
         playerShooting.DisableEffects();

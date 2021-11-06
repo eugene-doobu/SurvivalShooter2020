@@ -7,6 +7,7 @@ public class PlayerShooting : MonoBehaviour
     public int damagePerShot = 20;
     public float timeBetweenBullets = 0.15f;
     public float range = 100f;
+    public float shootRadius = 0.3f;
 
     private float timer;
     private Ray shootRay = new Ray();
@@ -16,6 +17,7 @@ public class PlayerShooting : MonoBehaviour
     private LineRenderer gunLine;
     private AudioSource gunAudio;
     private Light gunLight;
+    private Light faceLight;
     private float effectsDisplayTime = 0.2f;
 
     private void Awake()
@@ -25,6 +27,7 @@ public class PlayerShooting : MonoBehaviour
         gunLine = GetComponent<LineRenderer>();
         gunAudio = GetComponent<AudioSource>();
         gunLight = GetComponent<Light>();
+        faceLight = transform.Find("FaceLight").GetComponent<Light>();
     }
 
     private void Update()
@@ -46,6 +49,7 @@ public class PlayerShooting : MonoBehaviour
     {
         gunLine.enabled = false;
         gunLight.enabled = false;
+        faceLight.enabled = false;
     }
 
     void Shoot()
@@ -54,6 +58,7 @@ public class PlayerShooting : MonoBehaviour
 
         gunAudio.Play();
         gunLight.enabled = true;
+        faceLight.enabled = true;
 
         gunParticles.Stop();
         gunParticles.Play();
@@ -64,7 +69,7 @@ public class PlayerShooting : MonoBehaviour
         shootRay.origin = transform.position;
         shootRay.direction = transform.forward;
 
-        if(Physics.Raycast(shootRay, out shootHit, range, shootableMask))
+        if(Physics.SphereCast(shootRay, shootRadius, out shootHit, range, shootableMask))
         {
             EnemyHealth enemyHealth = shootHit.collider.GetComponent<EnemyHealth>();
             if(enemyHealth != null)
