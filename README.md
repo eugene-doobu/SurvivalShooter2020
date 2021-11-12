@@ -6,5 +6,7 @@ This is a project that changed Unity's old project 'Servival Shooter' to the 202
 
 <iframe width="956" height="538" src="https://www.youtube.com/watch?v=GueFCKIL8oI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
+[![Survival Shooter2020](http://img.youtube.com/vi/GueFCKIL8oI/0.jpg)](https://www.youtube.com/watch?v=GueFCKIL8oI) 
+
 
 <a href="https://learn.unity.com/project/survival-shooter-tutorial">Unity Learn - Survival Shooter</a>
